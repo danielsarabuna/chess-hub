@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Source/Presentation/View/LobbyView.uss?fileID=7433441132597879392&amp;guid=2274e65f3eef45cd999ebfeff88c1ae6&amp;type=3#LobbyView" />
+    <ui:VisualElement class="lobby-view">
+        <ui:Label text="Lobby: Waiting for Players" class="title" />
+        <ui:ScrollView name="playerList" class="player-list" />
+        <ui:VisualElement class="button-container">
+            <ui:Button name="confirmButton" text="Confirm" class="button" />
+            <ui:Button name="startGameButton" text="Start" class="button" />
+            <ui:Button name="exitButton" text="Exit" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

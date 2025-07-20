@@ -1,0 +1,46 @@
+<UXML xmlns="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Source/Presentation/View/MainMenuView.uss?fileID=7433441132597879392&amp;guid=27865d4cd4c54f1dacd8b52b826d1ace&amp;type=3#MainMenuView" />
+    <VisualElement name="name-prompt-container" class="name-prompt-container">
+        <Label text="Введите ваше имя:" class="name-prompt-label tab-content-label" />
+        <TextField label="Имя игрока" name="player-name-input" class="input-field" />
+        <Button text="Подтвердить" name="confirm-name-button" class="action-button" />
+    </VisualElement>
+    <VisualElement name="tabs-container" class="tabs-container">
+        <TabView class="some-styled-class">
+            <Tab label="Список лобби">
+                <VisualElement class="lobby-tab">
+                    <Image src="LobbyImage.png" class="tab-image" />
+                    <Label text="Доступные комнаты:" class="tab-content-label" />
+                    <ScrollView horizontal-scroller-visibility="Hidden" name="ScrollView" vertical-scroller-visibility="AlwaysVisible" class="lobby-list" style="width: 515px;">
+                        <Button text="Лобби #1" class="lobby-button" />
+                        <Button text="Лобби #2" class="lobby-button" />
+                        <Button text="Лобби #3" class="lobby-button" />
+                        <Button text="Лобби #4" class="lobby-button" />
+                        <Button text="Лобби #5" class="lobby-button" />
+                        <Button text="Лобби #6" class="lobby-button" />
+                        <Button text="Лобби #7" class="lobby-button" />
+                        <Button text="Лобби #8" class="lobby-button" />
+                        <Button text="Лобби #9" class="lobby-button" />
+                        <Button text="Лобби #10" class="lobby-button" />
+                    </ScrollView>
+                </VisualElement>
+            </Tab>
+            <Tab label="Создание лобби">
+                <VisualElement class="create-lobby-tab">
+                    <Image src="CreateLobby.png" class="tab-image" />
+                    <Label text="Создайте новое лобби:" name="lobby-name-label" class="tab-content-label" />
+                    <TextField label="Название лобби" name="lobby-name-input" class="input-field" />
+                    <Button text="Создать лобби" name="create-lobby-button" class="action-button create-button" />
+                </VisualElement>
+            </Tab>
+            <Tab label="Подключение">
+                <VisualElement class="join-lobby-tab">
+                    <Image src="JoinLobby.png" class="tab-image" />
+                    <Label text="Введите ID лобби:" name="lobby-key-label" class="tab-content-label" />
+                    <TextField label="ID лобби" name="lobby-key-input" class="input-field" />
+                    <Button text="Подключиться" name="join-lobby-button" class="action-button join-button" />
+                </VisualElement>
+            </Tab>
+        </TabView>
+    </VisualElement>
+</UXML>
