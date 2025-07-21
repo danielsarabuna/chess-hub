@@ -92,6 +92,7 @@ namespace Presentation.View
             _createLobbyButton = _root.Q<Button>("create-lobby-button");
             _joinLobbyButton = _root.Q<Button>("join-lobby-button");
             _mainScrollView = _root.Q<ScrollView>("ScrollView");
+            _root.Q<Label>("playerNameLabel").text = $"Player: {_viewModel.PlayerName}";
 
             _createLobbyButton.clicked += async () =>
             {

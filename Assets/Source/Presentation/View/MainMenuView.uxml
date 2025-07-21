@@ -6,6 +6,9 @@
         <Button text="Подтвердить" name="confirm-name-button" class="action-button" />
     </VisualElement>
     <VisualElement name="tabs-container" class="tabs-container">
+        <VisualElement class="name-container">
+            <Label name="playerNameLabel" class="player-name-label" text="Player: [Insert Name]" />
+        </VisualElement>
         <TabView class="some-styled-class">
             <Tab label="Список лобби">
                 <VisualElement class="lobby-tab">
