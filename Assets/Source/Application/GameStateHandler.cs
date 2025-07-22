@@ -1,6 +1,6 @@
-using Chess.Domain;
+using ChessHub.Domain;
 
-namespace Chess.Application
+namespace ChessHub.Application
 {
     public class GameStateHandler
     {

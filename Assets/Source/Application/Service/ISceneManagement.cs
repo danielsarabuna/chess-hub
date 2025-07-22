@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
-namespace Chess.Application.Service
+namespace ChessHub.Application.Service
 {
     public interface ISceneManagement
     {

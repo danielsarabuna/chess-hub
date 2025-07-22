@@ -1,7 +1,7 @@
-using Chess.Domain;
+using ChessHub.Domain;
 using MessagePipe;
 
-namespace Chess.Infrastructure
+namespace ChessHub.Infrastructure
 {
     public class ChessEventPublisher
     {

@@ -1,9 +1,9 @@
-using Chess.Application.ViewModel;
+using ChessHub.Application.ViewModel;
 using UnityEngine;
 using UnityEngine.UIElements;
 using VContainer;
 
-namespace Presentation.View
+namespace ChessHub.Presentation.View
 {
     [RequireComponent(typeof(UIDocument))]
     public class LoadingView : MonoBehaviour

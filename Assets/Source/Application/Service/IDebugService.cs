@@ -1,4 +1,4 @@
-namespace Chess.Application.Service
+namespace ChessHub.Application.Service
 {
     public interface IDebugService
     {

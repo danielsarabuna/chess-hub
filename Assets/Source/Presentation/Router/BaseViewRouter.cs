@@ -1,8 +1,8 @@
 using System.Threading;
-using Chess.Application.Router;
+using ChessHub.Application.Router;
 using Cysharp.Threading.Tasks;
 
-namespace Presentation.Router
+namespace ChessHub.Presentation.Router
 {
     public abstract class BaseViewRouter<TView, TViewModel> : IViewRouter
     {

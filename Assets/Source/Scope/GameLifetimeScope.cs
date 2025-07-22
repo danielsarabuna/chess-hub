@@ -1,10 +1,10 @@
-using Chess.Application;
-using Chess.Domain;
-using Chess.Infrastructure;
+using ChessHub.Application;
+using ChessHub.Domain;
+using ChessHub.Infrastructure;
 using MessagePipe;
 using VContainer;
 
-namespace Scope
+namespace ChessHub.Scope
 {
     public class GameLifetimeScope : ApplicationState
     {

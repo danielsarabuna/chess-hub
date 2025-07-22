@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Chess.Application.Router;
-using Chess.Application.ViewModel;
+using ChessHub.Application.Router;
+using ChessHub.Application.ViewModel;
+using ChessHub.Presentation.View;
 using Cysharp.Threading.Tasks;
-using Presentation.View;
 using UnityEngine;
 
-namespace Presentation.Router
+namespace ChessHub.Presentation.Router
 {
     public class LoadingViewRouter : BaseViewRouter<LoadingView, ILoadingViewModel>, ILoadingViewRouter
     {

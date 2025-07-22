@@ -1,8 +1,8 @@
-using Chess.Application;
+using ChessHub.Application;
 using Cysharp.Threading.Tasks;
 using VContainer.Unity;
 
-namespace Scope
+namespace ChessHub.Scope
 {
     public abstract class ApplicationState : LifetimeScope, IApplicationState
     {

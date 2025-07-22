@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
-using Chess.Application.Service;
-using Chess.Domain.Model;
-using Chess.Domain.Repository;
+using ChessHub.Application.Service;
+using ChessHub.Domain.Model;
+using ChessHub.Domain.Repository;
 using MessagePipe;
 
-namespace Infrastructure.Repository
+namespace ChessHub.Infrastructure.Repository
 {
     using System.Collections.Generic;
     using System.Threading;

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using Chess.Application.Service;
-using Chess.Domain.Model;
+using ChessHub.Application.Service;
+using ChessHub.Domain.Model;
 using VContainer;
 
-namespace Infrastructure.Service
+namespace ChessHub.Infrastructure.Service
 {
     using MessagePipe;
     using Photon.Pun;

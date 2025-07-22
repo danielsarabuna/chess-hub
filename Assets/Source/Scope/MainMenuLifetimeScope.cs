@@ -1,17 +1,17 @@
-using Chess.Application;
-using Chess.Application.Router;
-using Chess.Application.UseCase;
-using Chess.Application.ViewModel;
-using Chess.Domain.Repository;
-using Infrastructure.Repository;
-using Presentation.Router;
-using Presentation.View;
-using Presentation.ViewModel;
+using ChessHub.Application;
+using ChessHub.Application.Router;
+using ChessHub.Application.UseCase;
+using ChessHub.Application.ViewModel;
+using ChessHub.Domain.Repository;
+using ChessHub.Infrastructure.Repository;
+using ChessHub.Presentation.Router;
+using ChessHub.Presentation.View;
+using ChessHub.Presentation.ViewModel;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Scope
+namespace ChessHub.Scope
 {
     public class MainMenuLifetimeScope : ApplicationState
     {
@@ -32,5 +32,6 @@ namespace Scope
 
             builder.Register<ILobbyRepository, LobbyRepository>(Lifetime.Singleton);
         }
+
     }
 }

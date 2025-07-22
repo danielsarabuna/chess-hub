@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Chess.Domain
+namespace ChessHub.Domain
 {
     [System.Serializable]
     public struct MoveData

@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Chess.Application.Router;
-using Chess.Application.Service;
+using ChessHub.Application.Router;
+using ChessHub.Application.Service;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 
-namespace Chess.Application
+namespace ChessHub.Application
 {
     using UnityEngine;
     using MessagePipe;

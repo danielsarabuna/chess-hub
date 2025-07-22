@@ -1,4 +1,4 @@
-namespace Chess.Domain.Model
+namespace ChessHub.Domain.Model
 {
     public class PlayerModel
     {

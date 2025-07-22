@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Chess.Domain.Model;
+using ChessHub.Domain.Model;
 
-namespace Chess.Application.Service
+namespace ChessHub.Application.Service
 {
     public struct ConnectedToServerMessage
     {

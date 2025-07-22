@@ -1,7 +1,7 @@
 using System;
-using Chess.Application.ViewModel;
+using ChessHub.Application.ViewModel;
 
-namespace Presentation.ViewModel
+namespace ChessHub.Presentation.ViewModel
 {
     public class LoadingViewModel : ILoadingViewModel
     {

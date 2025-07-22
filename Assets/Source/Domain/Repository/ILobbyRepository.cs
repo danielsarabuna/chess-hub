@@ -1,6 +1,6 @@
-using Chess.Domain.Model;
+using ChessHub.Domain.Model;
 
-namespace Chess.Domain.Repository
+namespace ChessHub.Domain.Repository
 {
     using System.Collections.Generic;
     using System.Threading;

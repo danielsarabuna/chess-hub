@@ -1,8 +1,8 @@
 using System.Threading;
-using Chess.Domain.Repository;
+using ChessHub.Domain.Repository;
 using Cysharp.Threading.Tasks;
 
-namespace Chess.Application.UseCase
+namespace ChessHub.Application.UseCase
 {
     public class LeaveLobbyUseCase
     {

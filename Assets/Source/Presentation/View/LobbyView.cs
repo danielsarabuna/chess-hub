@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Linq;
 using System.Threading;
-using Chess.Application.ViewModel;
+using ChessHub.Application.ViewModel;
 
-namespace Presentation.View
+namespace ChessHub.Presentation.View
 {
     using UnityEngine;
     using UnityEngine.UIElements;

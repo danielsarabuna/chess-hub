@@ -1,4 +1,4 @@
-namespace Chess.Application.Router
+namespace ChessHub.Application.Router
 {
     public interface  IMainMenuViewRouter : IViewRouter
     {

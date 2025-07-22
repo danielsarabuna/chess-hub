@@ -3,7 +3,7 @@ using Photon.Pun;
 using MessagePipe;
 using Photon.Realtime;
 
-namespace Chess.Infrastructure
+namespace ChessHub.Infrastructure
 {
     public class ChessNetworkManager
     {

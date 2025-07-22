@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace Chess.Application.Router
+namespace ChessHub.Application.Router
 {
     public interface ILoadingViewRouter : IViewRouter
     {

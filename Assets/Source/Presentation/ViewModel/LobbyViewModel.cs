@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using System.Threading;
-using Chess.Application.Service;
-using Chess.Application.UseCase;
-using Chess.Application.ViewModel;
-using Chess.Domain.Model;
-using Chess.Domain.Repository;
+using ChessHub.Application.Service;
+using ChessHub.Application.UseCase;
+using ChessHub.Application.ViewModel;
+using ChessHub.Domain.Model;
+using ChessHub.Domain.Repository;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
-namespace Presentation.ViewModel
+namespace ChessHub.Presentation.ViewModel
 {
     public class LobbyViewModel : ILobbyViewModel
     {

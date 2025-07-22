@@ -1,6 +1,6 @@
 using System;
 
-namespace Chess.Application.ViewModel
+namespace ChessHub.Application.ViewModel
 {
     public interface ILoadingViewModel
     {

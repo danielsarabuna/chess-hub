@@ -1,7 +1,7 @@
-using Chess.Domain;
+using ChessHub.Domain;
 using UnityEngine;
 
-namespace Chess.Application
+namespace ChessHub.Application
 {
     public interface IMoveValidator
     {

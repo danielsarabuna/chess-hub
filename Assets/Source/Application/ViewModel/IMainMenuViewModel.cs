@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading;
-using Chess.Domain.Model;
+using ChessHub.Domain.Model;
 using Cysharp.Threading.Tasks;
 
-namespace Chess.Application.ViewModel
+namespace ChessHub.Application.ViewModel
 {
     public interface IMainMenuViewModel
     {

@@ -1,7 +1,7 @@
-using Chess.Domain;
+using ChessHub.Domain;
 using UnityEngine;
 
-namespace Chess.Infrastructure
+namespace ChessHub.Infrastructure
 {
     public class ChessGameSynchronizer
     {

@@ -1,8 +1,7 @@
 using System.Collections;
-using Chess.Application.ViewModel;
-using Cysharp.Threading.Tasks;
+using ChessHub.Application.ViewModel;
 
-namespace Presentation.View
+namespace ChessHub.Presentation.View
 {
     using System.Threading;
     using UnityEngine;
@@ -38,7 +37,7 @@ namespace Presentation.View
             _viewModel = viewModel;
         }
 
-        private void Start()
+        public void Start()
         {
             _root = uiDocument.rootVisualElement;
 

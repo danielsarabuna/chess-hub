@@ -1,8 +1,8 @@
-using Chess.Domain;
+using ChessHub.Domain;
 using MessagePipe;
 using UnityEngine;
 
-namespace Chess.Application
+namespace ChessHub.Application
 {
     public class GameManager
     {

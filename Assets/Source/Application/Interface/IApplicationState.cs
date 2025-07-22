@@ -1,4 +1,4 @@
-namespace Chess.Application
+namespace ChessHub.Application
 {
     public enum SessionState
     {

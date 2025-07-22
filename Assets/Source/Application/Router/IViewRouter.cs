@@ -1,7 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace Chess.Application.Router
+namespace ChessHub.Application.Router
 {
     public interface IViewRouter
     {

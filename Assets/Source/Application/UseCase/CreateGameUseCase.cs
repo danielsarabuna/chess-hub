@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Chess.Application.UseCase
+namespace ChessHub.Application.UseCase
 {
     public class CreateGameUseCase
     {
