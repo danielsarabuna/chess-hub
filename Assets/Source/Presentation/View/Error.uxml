@@ -1,17 +1,8 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Source/Presentation/View/Error.uss?fileID=7433441132597879392&amp;guid=d127f44131f8044ce9766a298270e6ce&amp;type=3#Error" />
     <ui:VisualElement style="flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;">
-        
-        <!-- Сообщение об ошибке -->
-        <ui:Label name="error-message" text="Потеря соединения с сервером!" 
-                  style="unity-font-style: bold; font-size: 24px; color: #FF0000; margin-bottom: 15px;" />
-
-        <!-- Кнопка для переподключения -->
-        <ui:Button name="reconnect-button" text="Переподключиться" 
-                   style="width: 150px; height: 40px; margin-bottom: 10px;" />
-
-        <!-- Кнопка для выхода -->
-        <ui:Button name="exit-button" text="Выйти" 
-                   style="width: 150px; height: 40px;" />
-
+        <ui:Label name="error-message" text="Потеря соединения с сервером!" style="unity-font-style: bold; font-size: 24px; color: rgb(255, 0, 0); margin-bottom: 15px;" />
+        <ui:Button name="reconnect-button" text="Переподключиться" style="width: 150px; height: 40px; margin-bottom: 10px;" />
+        <ui:Button name="exit-button" text="Выйти" style="width: 150px; height: 40px;" />
     </ui:VisualElement>
 </ui:UXML>

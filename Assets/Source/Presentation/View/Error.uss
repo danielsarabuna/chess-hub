@@ -1,0 +1,22 @@
+VisualElement {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#reconnect-button, #exit-button {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 10px;
+    unity-font-style: bold;
+    font-size: 14px;
+}
+
+#error-message {
+    unity-font-style: bold;
+    font-size: 24px;
+    color: #FF0000;
+    margin-bottom: 15px;
+}
