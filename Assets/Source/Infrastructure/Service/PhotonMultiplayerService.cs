@@ -58,7 +58,7 @@ namespace ChessHub.Infrastructure.Service
 
         public void CreateRoom(string roomName)
         {
-            var options = new RoomOptions { MaxPlayers = 2 };
+            var options = new RoomOptions { MaxPlayers = 2, PlayerTtl = 10000 };
             PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
         }
 

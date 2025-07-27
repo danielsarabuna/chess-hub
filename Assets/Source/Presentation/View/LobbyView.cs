@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Threading;
 using ChessHub.Application.ViewModel;
+using ChessHub.Domain.Model;
 
 namespace ChessHub.Presentation.View
 {
@@ -70,12 +71,25 @@ namespace ChessHub.Presentation.View
         {
             _playerList.Clear();
 
-            foreach (var playerLabel in _viewModel.Players.Select(player => new Label(player.Nickname)))
+            foreach (var playerLabel in _viewModel.Players.Select(CreatePlayerList))
             {
-                playerLabel.style.marginBottom = 5;
-                playerLabel.style.fontSize = 16;
                 _playerList.Add(playerLabel);
             }
+        }
+
+        private VisualElement CreatePlayerList(PlayerModel player)
+        {
+            var playerLabel = new Label(player.Nickname)
+            {
+                style =
+                {
+                    marginBottom = 5,
+                    fontSize = 20,
+                    color = new Color(1, 1, 1)
+                }
+            };
+            return playerLabel;
+            ;
         }
 
         private void OnConfirmClicked()
