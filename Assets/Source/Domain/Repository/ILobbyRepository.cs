@@ -11,6 +11,6 @@ namespace ChessHub.Domain.Repository
         IReadOnlyList<PlayerModel> GetPlayerList { get; }
         UniTask<bool> CreateLobbyAsync(string lobbyName, CancellationToken cancellationToken);
         UniTask<bool> JoinLobbyAsync(string lobbyId, CancellationToken cancellationToken);
-        UniTask<bool> LeaveLobbyAsync(CancellationToken cancellationToken);
+        UniTask<bool> LeaveRoomAsync(CancellationToken cancellationToken);
     }
 }

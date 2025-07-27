@@ -38,7 +38,7 @@ namespace Scope
             builder.RegisterMessageBroker<MultiplayerErrorMessage>(options);
 
             builder.RegisterComponentOnNewGameObject<PhotonMultiplayerService>(Lifetime.Singleton,
-                    "MultiplayerService")
+                    "[MultiplayerService]")
                 .As<IUnityMultiplayerService>()
                 .AsSelf();
 

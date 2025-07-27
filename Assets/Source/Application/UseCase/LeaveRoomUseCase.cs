@@ -4,18 +4,18 @@ using Cysharp.Threading.Tasks;
 
 namespace ChessHub.Application.UseCase
 {
-    public class LeaveLobbyUseCase
+    public class LeaveRoomUseCase
     {
         private readonly ILobbyRepository _lobbyRepository;
 
-        public LeaveLobbyUseCase(ILobbyRepository lobbyRepository)
+        public LeaveRoomUseCase(ILobbyRepository lobbyRepository)
         {
             _lobbyRepository = lobbyRepository;
         }
 
         public async UniTask<bool> ExecuteAsync(CancellationToken cancellationToken)
         {
-            return await _lobbyRepository.LeaveLobbyAsync(cancellationToken);
+            return await _lobbyRepository.LeaveRoomAsync(cancellationToken);
         }
     }
 }

@@ -51,7 +51,7 @@ namespace ChessHub.Infrastructure.Repository
             return await _completionSource.Task;
         }
 
-        public async UniTask<bool> LeaveLobbyAsync(CancellationToken cancellationToken)
+        public async UniTask<bool> LeaveRoomAsync(CancellationToken cancellationToken)
         {
             _completionSource = new UniTaskCompletionSource<bool>();
             _multiplayerService.LeaveRoom();

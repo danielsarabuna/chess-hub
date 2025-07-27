@@ -28,7 +28,7 @@ namespace ChessHub.Scope
 
             builder.Register<ILobbyViewModel, LobbyViewModel>(Lifetime.Transient);
 
-            builder.Register<LeaveLobbyUseCase>(Lifetime.Singleton);
+            builder.Register<LeaveRoomUseCase>(Lifetime.Singleton);
             builder.Register<CreateGameUseCase>(Lifetime.Singleton);
             builder.Register<PlayerReadyUseCase>(Lifetime.Singleton);
 

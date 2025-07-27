@@ -12,7 +12,7 @@ namespace ChessHub.Presentation.ViewModel
 {
     public class LobbyViewModel : ILobbyViewModel
     {
-        private readonly LeaveLobbyUseCase _leaveLobbyUseCase;
+        private readonly LeaveRoomUseCase _leaveRoomUseCase;
         private readonly CreateGameUseCase _createGameUseCase;
         private readonly PlayerReadyUseCase _playerReadyUseCase;
         private readonly JoinLobbyUseCase _joinLobbyUseCase;
@@ -23,10 +23,10 @@ namespace ChessHub.Presentation.ViewModel
         public string NewLobbyName { get; set; }
         public IReadOnlyList<PlayerModel> Players => _lobbyRepository.GetPlayerList;
 
-        public LobbyViewModel(LeaveLobbyUseCase createLobbyUseCase, CreateGameUseCase createGameUseCase,
+        public LobbyViewModel(LeaveRoomUseCase createRoomUseCase, CreateGameUseCase createGameUseCase,
             PlayerReadyUseCase playerReadyUseCase, ILobbyRepository lobbyRepository, ISceneManagement sceneManagement)
         {
-            _leaveLobbyUseCase = createLobbyUseCase;
+            _leaveRoomUseCase = createRoomUseCase;
             _createGameUseCase = createGameUseCase;
             _playerReadyUseCase = playerReadyUseCase;
             _lobbyRepository = lobbyRepository;
@@ -44,7 +44,7 @@ namespace ChessHub.Presentation.ViewModel
 
         public async UniTask ExitLobbyAsync(CancellationToken cancellationToken)
         {
-            var success = await _leaveLobbyUseCase.ExecuteAsync(cancellationToken);
+            var success = await _leaveRoomUseCase.ExecuteAsync(cancellationToken);
             if (success)
             {
                 await _sceneManagement.LoadSceneAsync("MainMenu", LoadSceneMode.Single);

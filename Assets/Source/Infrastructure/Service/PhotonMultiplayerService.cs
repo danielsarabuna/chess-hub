@@ -70,7 +70,7 @@ namespace ChessHub.Infrastructure.Service
 
         public void LeaveRoom()
         {
-            PhotonNetwork.LeaveLobby();
+            PhotonNetwork.LeaveRoom();
         }
 
         public void Disconnect()

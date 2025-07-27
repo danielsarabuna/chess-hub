@@ -122,7 +122,7 @@ namespace ChessHub.Presentation.View
         {
             _mainScrollView.Clear();
 
-            Debug.Log("Lobby List updated");
+            Debug.Log($"Lobby List updated | {_viewModel.Lobbies.Count}");
 
             foreach (var lobby in _viewModel.Lobbies)
             {
