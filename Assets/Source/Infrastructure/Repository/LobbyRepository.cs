@@ -17,7 +17,7 @@ namespace ChessHub.Infrastructure.Repository
         private readonly DisposableBagBuilder _disposableBagBuilder;
         private List<PlayerModel> _playerList = new();
         private UniTaskCompletionSource<bool> _completionSource;
-        public IReadOnlyList<PlayerModel> GetPlayerList => _playerList;
+        public IReadOnlyList<PlayerModel> PlayerModels => _multiplayerService.PlayerModels;
 
         private LobbyRepository(IUnityMultiplayerService multiplayerService,
             ISubscriber<JoinedRoomMessage> joinedRoomSubscriber,

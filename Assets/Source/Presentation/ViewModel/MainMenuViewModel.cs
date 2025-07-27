@@ -22,7 +22,7 @@ namespace ChessHub.Presentation.ViewModel
             get => _unityMultiplayerService.PlayerName;
         }
 
-        public IReadOnlyList<LobbyModel> Lobbies => _unityMultiplayerService.GetAvailableLobbies;
+        public IReadOnlyList<LobbyModel> Lobbies => _unityMultiplayerService.LobbyModels;
 
         public string LobbyKey { get; set; }
         public string NewLobbyName { get; set; }

@@ -21,7 +21,7 @@ namespace ChessHub.Presentation.ViewModel
 
         public string LobbyKey { get; set; }
         public string NewLobbyName { get; set; }
-        public IReadOnlyList<PlayerModel> Players => _lobbyRepository.GetPlayerList;
+        public IReadOnlyList<PlayerModel> Players => _lobbyRepository.PlayerModels;
 
         public LobbyViewModel(LeaveRoomUseCase createRoomUseCase, CreateGameUseCase createGameUseCase,
             PlayerReadyUseCase playerReadyUseCase, ILobbyRepository lobbyRepository, ISceneManagement sceneManagement)

@@ -20,8 +20,11 @@ namespace ChessHub.Infrastructure.Service
         private IPublisher<MultiplayerErrorMessage> _errorPublisher;
         private IPublisher<PlayerLeftRoomMessage> _playerLeftRoomPublisher;
         private IPublisher<PlayerEnteredMessage> _playerEnteredPublisher;
-        private List<LobbyModel> _lobbies = new();
-        public IReadOnlyList<LobbyModel> GetAvailableLobbies => _lobbies;
+        private readonly Dictionary<string, LobbyModel> _cachedRoomList = new();
+        private readonly Dictionary<string, PlayerModel> _cachedPlayerList = new();
+        public IReadOnlyList<LobbyModel> LobbyModels => _cachedRoomList.Values.ToList();
+
+        public IReadOnlyList<PlayerModel> PlayerModels => _cachedPlayerList.Values.ToList();
 
         public string PlayerName => PhotonNetwork.LocalPlayer.NickName;
 
@@ -81,16 +84,41 @@ namespace ChessHub.Infrastructure.Service
             _connectedPublisher.Publish(new ConnectedToServerMessage { ServerVersion = gameVersion });
         }
 
+        public override void OnDisconnected(DisconnectCause cause)
+        {
+            Debug.LogWarning($"Disconnected from Photon. Cause: {cause}");
+            _errorPublisher.Publish(new MultiplayerErrorMessage { ErrorMessage = $"Disconnected: {cause}" });
+        }
+
         public override void OnCreatedRoom()
         {
             base.OnCreatedRoom();
             Debug.Log("Created room.");
         }
 
+        public override void OnJoinedLobby()
+        {
+            _cachedRoomList.Clear();
+        }
+
+        public override void OnLeftLobby()
+        {
+            _cachedRoomList.Clear();
+        }
+
         public override void OnJoinedRoom()
         {
             Debug.Log($"Joined room: {PhotonNetwork.CurrentRoom.Name}");
+            _cachedRoomList.Clear();
+            foreach (var player in PhotonNetwork.PlayerList)
+                _cachedPlayerList[player.NickName] = new PlayerModel(player.NickName);
             _joinedRoomPublisher.Publish(new JoinedRoomMessage { RoomName = PhotonNetwork.CurrentRoom.Name });
+        }
+
+        public override void OnCreateRoomFailed(short returnCode, string message)
+        {
+            Debug.LogError($"Failed to create room: {message}");
+            _errorPublisher.Publish(new MultiplayerErrorMessage { ErrorMessage = message });
         }
 
         public override void OnJoinRoomFailed(short returnCode, string message)
@@ -99,38 +127,33 @@ namespace ChessHub.Infrastructure.Service
             _errorPublisher.Publish(new MultiplayerErrorMessage { ErrorMessage = message });
         }
 
-        public override void OnDisconnected(DisconnectCause cause)
-        {
-            Debug.LogWarning($"Disconnected from Photon. Cause: {cause}");
-            _errorPublisher.Publish(new MultiplayerErrorMessage { ErrorMessage = $"Disconnected: {cause}" });
-        }
-
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            Debug.Log("Room list updated.");
+            base.OnRoomListUpdate(roomList);
+            Debug.Log($"OnRoomListUpdate called. Room count: {roomList.Count}");
+            UpdateCachedRoomList(roomList);
         }
-        
-        // public override void OnRoomListUpdate(List<RoomInfo> roomList)
-        // {
-        //     base.OnRoomListUpdate(roomList);
-        //     Debug.Log($"OnRoomListUpdate called. Room count: {roomList.Count}");
-        //
-        //     _lobbies = roomList
-        //         .Select(x => new LobbyModel($"{x.masterClientId}", x.Name, x.PlayerCount, x.PlayerCount))
-        //         .ToList();
-        //
-        //     foreach (var room in _lobbies)
-        //     {
-        //         Debug.Log(
-        //             $"Room Name: {room.LobbyName}, Master Client ID: {room.LobbyId}, Player Count: {room.CurrentPlayers}");
-        //     }
-        // }
+
+        private void UpdateCachedRoomList(List<RoomInfo> roomList)
+        {
+            foreach (var roomInfo in roomList)
+            {
+                if (!roomInfo.IsOpen || !roomInfo.IsVisible || roomInfo.RemovedFromList)
+                {
+                    _cachedRoomList.Remove(roomInfo.Name);
+                    continue;
+                }
+
+                _cachedRoomList[roomInfo.Name] = new LobbyModel($"{roomInfo.masterClientId}", roomInfo.Name,
+                    roomInfo.PlayerCount, roomInfo.PlayerCount);
+            }
+        }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
             base.OnPlayerLeftRoom(otherPlayer);
             Debug.Log($"Player left room: {otherPlayer.NickName}");
-
+            _cachedPlayerList.Remove(otherPlayer.NickName);
             _playerLeftRoomPublisher.Publish(new PlayerLeftRoomMessage { PlayerName = otherPlayer.NickName });
         }
 
@@ -138,7 +161,7 @@ namespace ChessHub.Infrastructure.Service
         {
             base.OnPlayerEnteredRoom(newPlayer);
             Debug.Log($"Player entered room: {newPlayer.NickName}");
-
+            _cachedPlayerList[newPlayer.NickName] = new PlayerModel(newPlayer.NickName);
             _playerEnteredPublisher.Publish(new PlayerEnteredMessage { PlayerName = newPlayer.NickName });
         }
     }

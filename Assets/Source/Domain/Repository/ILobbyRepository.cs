@@ -8,7 +8,7 @@ namespace ChessHub.Domain.Repository
 
     public interface ILobbyRepository
     {
-        IReadOnlyList<PlayerModel> GetPlayerList { get; }
+        IReadOnlyList<PlayerModel> PlayerModels { get; }
         UniTask<bool> CreateLobbyAsync(string lobbyName, CancellationToken cancellationToken);
         UniTask<bool> JoinLobbyAsync(string lobbyId, CancellationToken cancellationToken);
         UniTask<bool> LeaveRoomAsync(CancellationToken cancellationToken);

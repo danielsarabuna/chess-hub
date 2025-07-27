@@ -34,7 +34,8 @@ namespace ChessHub.Application.Service
 
     public interface IUnityMultiplayerService
     {
-        IReadOnlyList<LobbyModel> GetAvailableLobbies { get; }
+        IReadOnlyList<LobbyModel> LobbyModels { get; }
+        IReadOnlyList<PlayerModel> PlayerModels { get; }
         string PlayerName { get; }
         void ConnectToServer();
         void CreateRoom(string roomName);
