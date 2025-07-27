@@ -44,16 +44,12 @@ namespace ChessHub.Infrastructure.Service
             DontDestroyOnLoad(this);
         }
 
-        public void SetPlayerName(string value)
-        {
-            PhotonNetwork.LocalPlayer.NickName = value;
-        }
-
         public void ConnectToServer()
         {
             Debug.Log("Connecting to Photon...");
             PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.GameVersion = Application.version;
+            PhotonNetwork.LocalPlayer.NickName = $"Player {Random.Range(1000, 10000)}";
             PhotonNetwork.ConnectUsingSettings();
         }
 
@@ -65,6 +61,7 @@ namespace ChessHub.Infrastructure.Service
 
         public void JoinRoom(string roomName)
         {
+            if (PhotonNetwork.InLobby) PhotonNetwork.LeaveLobby();
             PhotonNetwork.JoinRoom(roomName);
         }
 
@@ -82,6 +79,12 @@ namespace ChessHub.Infrastructure.Service
         {
             Debug.Log("Connected to Photon server.");
             _connectedPublisher.Publish(new ConnectedToServerMessage { ServerVersion = gameVersion });
+        }
+
+        public override void OnCreatedRoom()
+        {
+            base.OnCreatedRoom();
+            Debug.Log("Created room.");
         }
 
         public override void OnJoinedRoom()
@@ -104,19 +107,24 @@ namespace ChessHub.Infrastructure.Service
 
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            base.OnRoomListUpdate(roomList);
-            Debug.Log($"OnRoomListUpdate called. Room count: {roomList.Count}");
-
-            _lobbies = roomList
-                .Select(x => new LobbyModel($"{x.masterClientId}", x.Name, x.PlayerCount, x.PlayerCount))
-                .ToList();
-
-            foreach (var room in _lobbies)
-            {
-                Debug.Log(
-                    $"Room Name: {room.LobbyName}, Master Client ID: {room.LobbyId}, Player Count: {room.CurrentPlayers}");
-            }
+            Debug.Log("Room list updated.");
         }
+        
+        // public override void OnRoomListUpdate(List<RoomInfo> roomList)
+        // {
+        //     base.OnRoomListUpdate(roomList);
+        //     Debug.Log($"OnRoomListUpdate called. Room count: {roomList.Count}");
+        //
+        //     _lobbies = roomList
+        //         .Select(x => new LobbyModel($"{x.masterClientId}", x.Name, x.PlayerCount, x.PlayerCount))
+        //         .ToList();
+        //
+        //     foreach (var room in _lobbies)
+        //     {
+        //         Debug.Log(
+        //             $"Room Name: {room.LobbyName}, Master Client ID: {room.LobbyId}, Player Count: {room.CurrentPlayers}");
+        //     }
+        // }
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {

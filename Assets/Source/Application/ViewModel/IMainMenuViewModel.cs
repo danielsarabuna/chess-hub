@@ -9,9 +9,9 @@ namespace ChessHub.Application.ViewModel
     {
         string LobbyKey { get; set; }
         string NewLobbyName { get; set; }
-        string PlayerName { get; set; }
-        
-        public IReadOnlyList<LobbyModel> Lobbies  { get; }
+        string PlayerName { get; }
+
+        public IReadOnlyList<LobbyModel> Lobbies { get; }
 
         UniTask CreateLobbyAsync(CancellationToken cancellationToken);
         UniTask JoinLobbyAsync(CancellationToken cancellationToken);

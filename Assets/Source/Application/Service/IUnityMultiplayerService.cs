@@ -36,8 +36,6 @@ namespace ChessHub.Application.Service
     {
         IReadOnlyList<LobbyModel> GetAvailableLobbies { get; }
         string PlayerName { get; }
-
-        void SetPlayerName(string value);
         void ConnectToServer();
         void CreateRoom(string roomName);
         void JoinRoom(string roomName);

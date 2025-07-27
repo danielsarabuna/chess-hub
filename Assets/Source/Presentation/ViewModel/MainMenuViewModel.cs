@@ -20,7 +20,6 @@ namespace ChessHub.Presentation.ViewModel
         public string PlayerName
         {
             get => _unityMultiplayerService.PlayerName;
-            set => _unityMultiplayerService.SetPlayerName(value);
         }
 
         public IReadOnlyList<LobbyModel> Lobbies => _unityMultiplayerService.GetAvailableLobbies;

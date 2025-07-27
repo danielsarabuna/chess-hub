@@ -49,15 +49,7 @@ namespace ChessHub.Presentation.View
             _playerNameInput = _namePromptContainer.Q<TextField>("player-name-input");
             _confirmNameButton = _namePromptContainer.Q<Button>("confirm-name-button");
 
-            if (PlayerPrefs.HasKey("PlayerName"))
-            {
-                _viewModel.PlayerName = PlayerPrefs.GetString("PlayerName");
-                ShowTabs();
-            }
-            else
-            {
-                ShowNamePrompt();
-            }
+            ShowTabs();
         }
 
         private void ShowNamePrompt()
@@ -68,7 +60,7 @@ namespace ChessHub.Presentation.View
             {
                 if (string.IsNullOrWhiteSpace(_playerNameInput.text)) return;
                 PlayerPrefs.SetString("PlayerName", _playerNameInput.text);
-                _viewModel.PlayerName = _playerNameInput.text;
+                // _viewModel.PlayerName = _playerNameInput.text;
 
                 ShowTabs();
             };
@@ -91,7 +83,7 @@ namespace ChessHub.Presentation.View
             _createLobbyButton = _root.Q<Button>("create-lobby-button");
             _joinLobbyButton = _root.Q<Button>("join-lobby-button");
             _mainScrollView = _root.Q<ScrollView>("ScrollView");
-            _root.Q<Label>("playerNameLabel").text = $"Player: {_viewModel.PlayerName}";
+            _root.Q<Label>("playerNameLabel").text = $"{_viewModel.PlayerName}";
 
             _createLobbyButton.clicked += async () =>
             {
